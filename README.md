@@ -4,3 +4,36 @@ IDE - IntelliJ IDEA 2022.3.3 (Ultimate Edition)
 웹 서버 - 톰캣 9.0.73
 DB - MariaDB 10.5(x64)
 SQL 툴 - HeidiSQL 11.3.0.6295
+
+1. JDBC 프로그래밍을 위한 API
+  * java.sql.connection : db와 네트워크상의 연결,작업 후에는 반드시 close()로 연결 종료 해야 한다.
+  * java.sql.Statement/PreparedStatement : SQL을 db로 보내기 
+  * Statement : SQL 내부에 모든 데이터를 같이 전송하는 방식
+  * PreparedStatement : SQL을 먼저 전달 후 데이터 전송하는 방식
+  * executeUpdate() : DML 실행하과 결과를 int 타입으로 반환한다.
+  * executeQuery() : 쿼리를 실행할 때 사용, ResultSet 타입으로 리턴 받는다.
+  * java.sql.ResultSet : 네트워크를 통해 데이터를 읽어들이기에 작업후 close()로 연결 종료
+  * Connection pool : 미리 Connection 객체를 생성해서 보관하고 필요할 때마 쓰는 방식
+  * javax.sql.DataSource : Connection pool을 자바에서 API 형태로 지원
+  * DAO(Data Access Object) : 데이터를 전문으로 처리하는 객체
+  * VO(Value Object) : 데이터를 객체 단위로 처리
+
+2. build.gradle 설정
+```
+dependencies {
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.0.4'
+
+    //Lombok 라이브러리 추가
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+}
+```

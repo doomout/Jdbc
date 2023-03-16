@@ -29,6 +29,13 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.0.4'
 
+    //Lombok 라이브러리 추가
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
 }
 
 test {
