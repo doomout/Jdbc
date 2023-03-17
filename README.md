@@ -1,9 +1,9 @@
-도서명 - 자바 웹 개발 워크북
-IDE - IntelliJ IDEA 2022.3.3 (Ultimate Edition)
-자바 버전 - JDK 11
-웹 서버 - 톰캣 9.0.73
-DB - MariaDB 10.5(x64)
-SQL 툴 - HeidiSQL 11.3.0.6295
+도서명 - 자바 웹 개발 워크북  
+IDE - IntelliJ IDEA 2022.3.3 (Ultimate Edition)  
+자바 버전 - JDK 11  
+웹 서버 - 톰캣 9.0.73  
+DB - MariaDB 10.5(x64)  
+SQL 툴 - HeidiSQL 11.3.0.6295  
 
 1. JDBC 프로그래밍을 위한 API
   * java.sql.connection : db와 네트워크상의 연결,작업 후에는 반드시 close()로 연결 종료 해야 한다.
@@ -34,6 +34,23 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.26'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+    
+    //HikariCP 설정 (Connection Pool)
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
 
+}
+```
+3. Lombok의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
+```
+public String getTime2() throws Exception {
+    @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+    @Cleanup PreparedStatement preparedStatement = connection.prepareStatement("select now()");
+    @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+
+    resultSet.next();
+
+    String now = resultSet.getString(1);
+
+    return now;
 }
 ```

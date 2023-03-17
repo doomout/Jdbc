@@ -1,4 +1,4 @@
-package com.doom.jdbc;
+package org.zerock.jdbcex;
 
 import java.io.*;
 import javax.servlet.http.*;
