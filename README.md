@@ -37,7 +37,8 @@ dependencies {
     
     //HikariCP 설정 (Connection Pool)
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
-
+    
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
 }
 ```
 3. Lombok의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
