@@ -60,7 +60,7 @@ public String getTime2() throws Exception {
     return now;
 }
 ```
-4. log42.xml 설정
+4. log4j2.xml 설정
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="WARN">
