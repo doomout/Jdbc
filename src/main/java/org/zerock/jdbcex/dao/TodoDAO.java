@@ -69,4 +69,26 @@ public class TodoDAO {
         }
         return list;
     }
+    public TodoVO selectOne(Long tno) throws Exception {
+        String sql = "select * from tbl_todo where tno = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setLong(1, tno);
+
+        @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+
+        //결과가 1개만 나와서 반복 안하지만 언제나 반복을 걸어주는 것이 좋다.
+        resultSet.next();
+
+        TodoVO vo = TodoVO.builder()
+                .tno(resultSet.getLong("tno"))
+                .title(resultSet.getString("title"))
+                .dueDate(resultSet.getDate("dueDate").toLocalDate())
+                .finished(resultSet.getBoolean("finished"))
+                .build();
+
+        return vo;
+    }
 }
