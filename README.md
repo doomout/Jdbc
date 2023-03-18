@@ -39,6 +39,11 @@ dependencies {
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
     
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
+    
+    //LOG4j 설정
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
 }
 ```
 3. Lombok의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
@@ -54,4 +59,20 @@ public String getTime2() throws Exception {
 
     return now;
 }
+```
+4. log42.xml 설정
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
 ```
