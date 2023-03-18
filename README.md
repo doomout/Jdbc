@@ -40,7 +40,7 @@ dependencies {
     
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
     
-    //LOG4j 설정
+    //Log4j2 설정
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
@@ -60,7 +60,7 @@ public String getTime2() throws Exception {
     return now;
 }
 ```
-4. log4j2.xml 설정
+4. log4j2.xml 설정(보안 이슈 해결 버전인 2.17.0 이상을 권장)
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="WARN">
