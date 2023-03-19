@@ -1,8 +1,8 @@
-package org.zerock.jdbcex.controller;
+package org.zerock.jdbc.controller;
 
 import lombok.extern.log4j.Log4j2;
-import org.zerock.jdbcex.dto.TodoDTO;
-import org.zerock.jdbcex.service.TodoService;
+import org.zerock.jdbc.dto.TodoDTO;
+import org.zerock.jdbc.service.TodoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

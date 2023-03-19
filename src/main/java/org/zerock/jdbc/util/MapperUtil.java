@@ -1,4 +1,4 @@
-package org.zerock.jdbcex.util;
+package org.zerock.jdbc.util;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
