@@ -44,6 +44,8 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
+    
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
 }
 ```
 3. Lombok의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
