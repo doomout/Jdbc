@@ -20,6 +20,7 @@ public class TodoListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("todo list......................");
+
         try{
             List<TodoDTO> dtoList = todoService.listAll();
             req.setAttribute("dtoList", dtoList);

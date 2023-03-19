@@ -37,7 +37,7 @@ public class TodoDAOTests {
 
     @Test
     public void testSelectOne() throws Exception{
-        Long tno = 1L;
+        Long tno = 1L; //반드시 존재하는 번호 이용
         TodoVO vo = todoDAO.selectOne(tno);
         System.out.println(vo);
     }
@@ -46,8 +46,8 @@ public class TodoDAOTests {
     public void testUpdateOne() throws Exception {
         TodoVO todoVO = TodoVO.builder()
                 .tno(1L)
-                .title("Sample Title....")
-                .dueDate(LocalDate.of(2023,03,18))
+                .title("update Test Title....")
+                .dueDate(LocalDate.of(2023,03,20))
                 .finished(true)
                 .build();
 

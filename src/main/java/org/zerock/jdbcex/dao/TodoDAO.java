@@ -58,6 +58,7 @@ public class TodoDAO {
         @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
 
         List<TodoVO> list = new ArrayList<>();
+
         while(resultSet.next()) {
             TodoVO vo = TodoVO.builder()
                     .tno(resultSet.getLong("tno"))

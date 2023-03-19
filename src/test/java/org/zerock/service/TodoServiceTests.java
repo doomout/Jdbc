@@ -19,7 +19,7 @@ public class TodoServiceTests {
     @Test
     public void testRegister() throws Exception {
         TodoDTO todoDTO = TodoDTO.builder()
-                .title("JDBC Test log4j2")
+                .title("JDBC Test Title")
                 .dueDate(LocalDate.now())
                 .build();
 

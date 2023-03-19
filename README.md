@@ -32,23 +32,23 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
-    testCompileOnly 'org.projectlombok:lombok:1.18.26'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
-    
-    //HikariCP 설정 (Connection Pool)
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version:'1.18.24'
+
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
-    
+
+    // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
-    
-    //Log4j2 설정
+
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.2'
-    
+
     implementation group: 'jstl', name: 'jstl', version: '1.2'
 }
+}
 ```
-3. Lombok의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
+3. Lombok 의 @Cleanup 을 사용하면 try-catch 문을 생략하고, close()가 호출 되는 것을 보장한다.
 ```
 public String getTime2() throws Exception {
     @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
