@@ -41,12 +41,21 @@ public enum TodoService {
 
         return dtoList;
     }
-
-    
     public TodoDTO get(Long tno) throws Exception {
         log.info("tno: " + tno);
         TodoVO todoVO = dao.selectOne(tno); //DAO의 selectOne()으로 todoVO 객체를 가져오고  
         TodoDTO todoDTO = modelMapper.map(todoVO, TodoDTO.class); //modelMapper로 todoDTO로 변환
         return todoDTO;
+    }
+
+    public void remove(Long tno) throws Exception {
+        log.info("tno: " + tno);
+        dao.deleteOne(tno);
+    }
+    public void modify(TodoDTO todoDTO) throws Exception {
+        log.info("todoDTO: " + todoDTO);
+        TodoVO todoVO = modelMapper.map(todoDTO, TodoVO.class);
+
+        dao.updateOne(todoVO);
     }
 }
